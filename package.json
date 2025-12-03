@@ -1,0 +1,17 @@
+{
+  "name": "birthday-time-counter",
+  "version": "1.0.0",
+  "description": "Birthday Time Counter - Đếm thời gian từ ngày sinh 💗",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "birthday",
+    "counter",
+    "nodejs",
+    "kawaii"
+  ],
+  "author": "",
+  "license": "ISC"
+}

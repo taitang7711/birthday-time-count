@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: linear-gradient(135deg, #ffeef8 0%, #ffe5f0 25%, #ffd6e8 50%, #ffc7e0 75%, #ffb8d8 100%);
+    background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 25%, #7DD3FC 50%, #38BDF8 75%, #0EA5E9 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,7 +30,7 @@ body {
 
 .stars::before, .stars::after,
 .hearts::before, .hearts::after {
-    content: '✨';
+    content: '💙';
     position: absolute;
     font-size: 20px;
     animation: float 15s infinite;
@@ -81,7 +81,7 @@ body {
     max-width: 900px;
     width: 100%;
     box-shadow: 
-        0 20px 60px rgba(255, 105, 180, 0.3),
+        0 20px 60px rgba(14, 165, 233, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.8) inset;
     position: relative;
     z-index: 1;
@@ -113,7 +113,7 @@ body {
     font-weight: 700;
     padding: 15px 35px;
     background: linear-gradient(135deg, #fff0f8 0%, #ffe8f3 100%);
-    color: #ff8ed4;
+    color: #38BDF8;
     border: 3px solid rgba(255, 182, 193, 0.3);
     border-radius: 25px;
     cursor: pointer;
@@ -121,20 +121,20 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.1);
 }
 
 .tab-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
-    border-color: #ffb6c1;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+    border-color: #BAE6FD;
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #ff6ec7 0%, #ff8ed4 100%);
+    background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
     color: white;
-    border-color: #ff6ec7;
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+    border-color: #0EA5E9;
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
 }
 
 .tab-icon {
@@ -165,11 +165,11 @@ body {
 .title {
     font-size: 3em;
     font-weight: 800;
-    background: linear-gradient(135deg, #ff6ec7 0%, #ff8ed4 50%, #ffaee0 100%);
+    background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 50%, #38BDF8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.2);
+    text-shadow: 2px 2px 10px rgba(14, 165, 233, 0.2);
     animation: pulse 2s ease-in-out infinite;
     display: inline-block;
 }
@@ -204,7 +204,7 @@ body {
 .subtitle {
     text-align: center;
     font-size: 1.2em;
-    color: #ff8ed4;
+    color: #38BDF8;
     margin-top: 10px;
     font-weight: 600;
 }
@@ -246,7 +246,7 @@ body {
     border-radius: 30px;
     padding: 35px;
     margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
     border: 3px solid rgba(255, 182, 193, 0.3);
 }
 
@@ -259,9 +259,9 @@ body {
     display: block;
     font-size: 1.4em;
     font-weight: 700;
-    color: #ff6ec7;
+    color: #0EA5E9;
     margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.1);
+    text-shadow: 1px 1px 2px rgba(14, 165, 233, 0.1);
 }
 
 .cherry, .star, .heart, .flower, .twinkle {
@@ -282,10 +282,10 @@ body {
     font-family: 'Nunito', sans-serif;
     font-size: 1.2em;
     padding: 15px 25px;
-    border: 3px solid #ffb6c1;
+    border: 3px solid #BAE6FD;
     border-radius: 20px;
     background: white;
-    color: #ff6ec7;
+    color: #0EA5E9;
     font-weight: 600;
     outline: none;
     transition: all 0.3s ease;
@@ -293,14 +293,14 @@ body {
 }
 
 #birthday:hover {
-    border-color: #ff8ed4;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    border-color: #38BDF8;
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
     transform: translateY(-2px);
 }
 
 #birthday:focus {
-    border-color: #ff6ec7;
-    box-shadow: 0 0 0 5px rgba(255, 105, 180, 0.2);
+    border-color: #0EA5E9;
+    box-shadow: 0 0 0 5px rgba(14, 165, 233, 0.2);
 }
 
 .calculate-btn {
@@ -310,13 +310,13 @@ body {
     font-size: 1.5em;
     font-weight: 800;
     padding: 18px 45px;
-    background: linear-gradient(135deg, #ff6ec7 0%, #ff8ed4 100%);
+    background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%);
     color: white;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 
-        0 10px 25px rgba(255, 105, 180, 0.4),
+        0 10px 25px rgba(14, 165, 233, 0.4),
         0 0 0 3px rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
     position: relative;
@@ -344,7 +344,7 @@ body {
 .calculate-btn:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 
-        0 15px 35px rgba(255, 105, 180, 0.5),
+        0 15px 35px rgba(14, 165, 233, 0.5),
         0 0 0 4px rgba(255, 255, 255, 0.6);
 }
 
@@ -376,7 +376,7 @@ body {
     border-radius: 30px;
     padding: 40px 30px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
     border: 3px solid rgba(255, 182, 193, 0.3);
     opacity: 0;
     animation: fadeIn 0.6s ease-out 0.3s forwards;
@@ -399,7 +399,7 @@ body {
     border-radius: 20px;
     padding: 25px 15px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
     border: 3px solid #ffe8f3;
     transition: all 0.3s ease;
     animation: scaleIn 0.5s ease-out;
@@ -418,14 +418,14 @@ body {
 
 .counter-item:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.3);
     border-color: #ffc7e0;
 }
 
 .counter-value {
     font-size: 3em;
     font-weight: 800;
-    background: linear-gradient(135deg, #ff6ec7 0%, #ff8ed4 100%);
+    background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -445,7 +445,7 @@ body {
 .counter-label {
     font-size: 1.1em;
     font-weight: 700;
-    color: #ff8ed4;
+    color: #38BDF8;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -458,17 +458,17 @@ body {
 .romantic-text {
     font-size: 1.5em;
     font-weight: 700;
-    color: #ff6ec7;
-    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.2);
+    color: #0EA5E9;
+    text-shadow: 2px 2px 5px rgba(14, 165, 233, 0.2);
     animation: glow 2s ease-in-out infinite;
 }
 
 @keyframes glow {
     0%, 100% {
-        text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.2);
+        text-shadow: 2px 2px 5px rgba(14, 165, 233, 0.2);
     }
     50% {
-        text-shadow: 2px 2px 15px rgba(255, 105, 180, 0.5);
+        text-shadow: 2px 2px 15px rgba(14, 165, 233, 0.5);
     }
 }
 
@@ -485,14 +485,14 @@ body {
     border-radius: 20px;
     padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
     border: 3px solid #ffe8f3;
     transition: all 0.3s ease;
 }
 
 .daily-item:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.3);
     border-color: #ffc7e0;
 }
 
@@ -505,7 +505,7 @@ body {
 .daily-label {
     font-size: 1.1em;
     font-weight: 700;
-    color: #ff8ed4;
+    color: #38BDF8;
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -514,7 +514,7 @@ body {
 .daily-value {
     font-size: 2.5em;
     font-weight: 800;
-    background: linear-gradient(135deg, #ff6ec7 0%, #ff8ed4 100%);
+    background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -525,14 +525,14 @@ body {
     background: white;
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
     border: 3px solid #ffe8f3;
 }
 
 .daily-detail h3 {
     font-size: 1.5em;
     font-weight: 700;
-    color: #ff6ec7;
+    color: #0EA5E9;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -555,7 +555,7 @@ body {
     display: block;
     font-size: 0.9em;
     font-weight: 600;
-    color: #ff8ed4;
+    color: #38BDF8;
     margin-bottom: 8px;
 }
 
@@ -563,7 +563,7 @@ body {
     display: block;
     font-size: 2em;
     font-weight: 800;
-    background: linear-gradient(135deg, #ff6ec7 0%, #ff8ed4 100%);
+    background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -972,7 +972,7 @@ body {
 }
 
 .note-popup-close:hover {
-    color: #FF6EC7;
+    color: #0EA5E9;
     transform: rotate(90deg);
 }
 

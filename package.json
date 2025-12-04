@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop birthday-counter",
+    "pm2:restart": "pm2 restart birthday-counter",
+    "pm2:logs": "pm2 logs birthday-counter"
   },
   "keywords": [
     "birthday",

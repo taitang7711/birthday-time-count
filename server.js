@@ -115,7 +115,10 @@ const server = http.createServer((req, res) => {
     });
 });
 
-const PORT = 3002;
-server.listen(PORT, () => {
-    console.log(`🌸 Server đang chạy tại http://localhost:${PORT} 💗`);
+const PORT = process.env.PORT || 3002;
+const HOST = process.env.HOST || '0.0.0.0';
+
+server.listen(PORT, HOST, () => {
+    console.log(`🌸 Server đang chạy tại http://${HOST}:${PORT} 💗`);
+    console.log(`📱 Truy cập từ bên ngoài: http://demngaysinh.chengtang.io.vn`);
 });

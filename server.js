@@ -98,16 +98,20 @@ const server = http.createServer((req, res) => {
     } else if (pathname.startsWith('/modules/') && pathname.endsWith('.js')) {
         filePath = path.join(__dirname, pathname);
         contentType = 'application/javascript';
+    } else if (pathname.startsWith('/modules/') && pathname.endsWith('.css')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'text/css';
     } else {
         res.writeHead(404);
-        res.end('Not found');
+        res.end('Not Found: ' + pathname);
         return;
     }
     
     fs.readFile(filePath, (err, data) => {
         if (err) {
-            res.writeHead(500);
-            res.end('Error loading file');
+            console.error('Error loading file:', filePath, err);
+            res.writeHead(404);
+            res.end('File not found: ' + pathname);
             return;
         }
         res.writeHead(200, { 'Content-Type': contentType });

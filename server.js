@@ -67,6 +67,15 @@ const server = http.createServer((req, res) => {
         return;
     }
     
+    // DELETE mood
+    if (pathname === '/api/daily/mood' && req.method === 'DELETE') {
+        const moodDate = parsedUrl.query.date;
+        const result = dailyDB.deleteMood(moodDate);
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(result));
+        return;
+    }
+    
     // Static file serving
     let filePath = '';
     let contentType = 'text/html; charset=utf-8';

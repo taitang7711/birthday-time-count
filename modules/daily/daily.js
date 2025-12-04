@@ -337,6 +337,13 @@ function updateMoodUI(value, name, emoji, note = '') {
     if (noteTextarea) {
         noteTextarea.value = note;
     }
+    
+    // Show/hide delete button
+    const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`;
+    const deleteMoodBtn = document.getElementById('deleteMoodBtn');
+    if (deleteMoodBtn) {
+        deleteMoodBtn.style.display = currentMoodData[dateKey] ? 'inline-block' : 'none';
+    }
 }
 
 // Load month moods
@@ -480,6 +487,117 @@ function closeNotePopup() {
     }
 }
 
+// Delete mood
+async function deleteMood() {
+    if (!confirm('Bạn có chắc muốn xóa cảm xúc và ghi chú của ngày này?')) {
+        return;
+    }
+    
+    const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`;
+    
+    try {
+        const response = await fetch(`/api/daily/mood?date=${dateKey}`, {
+            method: 'DELETE'
+        });
+        const result = await response.json();
+        
+        if (result.success) {
+            console.log('✅ Mood deleted successfully');
+            delete currentMoodData[dateKey];
+            
+            // Reset UI
+            updateMoodUI(6, 'Pleasant', '😊', '');
+            document.getElementById('deleteMoodBtn').style.display = 'none';
+            
+            // Re-render
+            renderCalendar();
+            drawMoodChart();
+            renderJournalList();
+        }
+    } catch (error) {
+        console.error('Error deleting mood:', error);
+        alert('Có lỗi khi xóa. Vui lòng thử lại!');
+    }
+}
+
+// Toggle journal view (all vs current month)
+let showAllJournal = false;
+function toggleJournalView() {
+    showAllJournal = !showAllJournal;
+    const toggleText = document.getElementById('journalToggleText');
+    toggleText.textContent = showAllJournal ? 'Chỉ tháng này' : 'Hiển thị tất cả';
+    renderJournalList();
+}
+
+// Render journal list
+function renderJournalList() {
+    const journalList = document.getElementById('journalList');
+    if (!journalList) return;
+    
+    // Get entries
+    let entries = [];
+    
+    if (showAllJournal) {
+        // Get all entries from currentMoodData
+        entries = Object.entries(currentMoodData).map(([date, data]) => ({
+            date,
+            ...data
+        }));
+    } else {
+        // Get current month entries
+        const monthStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}`;
+        entries = Object.entries(currentMoodData)
+            .filter(([date]) => date.startsWith(monthStr))
+            .map(([date, data]) => ({
+                date,
+                ...data
+            }));
+    }
+    
+    // Filter entries with notes
+    entries = entries.filter(entry => entry.note && entry.note.trim());
+    
+    // Sort by date descending
+    entries.sort((a, b) => b.date.localeCompare(a.date));
+    
+    // Render
+    if (entries.length === 0) {
+        journalList.innerHTML = '<div class="journal-empty">Chưa có ghi chú nào 📝</div>';
+        return;
+    }
+    
+    journalList.innerHTML = entries.map(entry => {
+        const [year, month, day] = entry.date.split('-');
+        const dateStr = `${day}/${month}/${year}`;
+        const notePreview = entry.note.length > 100 ? entry.note.substring(0, 100) + '...' : entry.note;
+        
+        return `
+            <div class="journal-entry" onclick="selectDateFromJournal('${entry.date}')">
+                <div class="journal-entry-header">
+                    <span class="journal-date">${dateStr}</span>
+                    <span class="journal-mood">${entry.emoji} ${entry.name}</span>
+                </div>
+                <div class="journal-entry-note">${notePreview}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+// Select date from journal
+function selectDateFromJournal(dateKey) {
+    const [year, month, day] = dateKey.split('-');
+    currentYear = parseInt(year);
+    currentMonth = parseInt(month) - 1;
+    selectedDate = new Date(currentYear, currentMonth, parseInt(day));
+    
+    renderCalendar();
+    updateMoodDate();
+    loadDayMood();
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // Save current mood (called when note changes)
 async function saveCurrentMood() {
     // Get current selected mood
@@ -521,4 +639,7 @@ async function initDailyTab() {
     
     // Load today's mood
     await loadDayMood();
+    
+    // Render journal
+    renderJournalList();
 }

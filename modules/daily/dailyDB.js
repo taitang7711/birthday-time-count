@@ -107,6 +107,21 @@ function getMoodByDate(moodDate) {
     }
 }
 
+// Xóa mood theo ngày
+function deleteMood(moodDate) {
+    try {
+        const stmt = db.prepare(`
+            DELETE FROM daily_moods 
+            WHERE mood_date = ?
+        `);
+        const result = stmt.run(moodDate);
+        return { success: true, changes: result.changes };
+    } catch (error) {
+        console.error('Error deleting mood:', error);
+        return { success: false, error: error.message };
+    }
+}
+
 // Lấy tất cả records để thống kê
 function getAllDailyRecords() {
     try {
@@ -128,5 +143,6 @@ module.exports = {
     saveMood,
     getMoodsByMonth,
     getMoodByDate,
+    deleteMood,
     getAllDailyRecords
 };

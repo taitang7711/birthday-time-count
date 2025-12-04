@@ -376,6 +376,11 @@ function drawMoodChart() {
     const canvas = document.getElementById('moodChart');
     const ctx = canvas.getContext('2d');
     
+    // Set canvas size responsive
+    const container = canvas.parentElement;
+    canvas.width = container.offsetWidth;
+    canvas.height = window.innerWidth <= 480 ? 120 : 150;
+    
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
@@ -642,4 +647,13 @@ async function initDailyTab() {
     
     // Render journal
     renderJournalList();
+    
+    // Add resize listener for chart
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            drawMoodChart();
+        }, 250);
+    });
 }

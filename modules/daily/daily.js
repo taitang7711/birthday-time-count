@@ -1,4 +1,5 @@
 // Daily Counter Logic
+console.log('✅ daily.js loaded');
 let dailyInterval;
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Time Counter 💗 </title>
+    <title>Time Counter 💗</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,98 +14,191 @@
     <div class="hearts"></div>
     
     <div class="container">
-        <div class="header">
-            <h1 class="title">
-                <span class="sparkle">✨</span>
-                Birthday Time Counter
-                <span class="heart-icon">💗</span>
-                <span class="sparkle">✨</span>
-            </h1>
-        </div>
-
-        <div class="input-section">
-            <div class="input-wrapper">
-                <label for="birthday">
-                    <span class="cherry">🌸</span>
-                    Ngày sinh của bạn
-                    <span class="cherry">🌸</span>
-                </label>
-                <input type="date" id="birthday" value="2002-08-04">
-            </div>
-            
-            <button class="calculate-btn" onclick="startCounter()">
-                <span class="btn-text">Phương Thảo</span>
-                <span class="btn-heart">💖</span>
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('daily')" data-tab="daily">
+                <span class="tab-icon">📅</span>
+                <span class="tab-text">Daily</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('birthday')" data-tab="birthday">
+                <span class="tab-icon">🎂</span>
+                <span class="tab-text">Birthday</span>
             </button>
         </div>
 
-        <div class="result-section" id="resultSection">
-            <div class="counter-grid">
-                <div class="counter-item">
-                    <div class="counter-value" id="years">0</div>
-                    <div class="counter-label">
-                        <span class="star">⭐</span>
-                        Năm
-                        <span class="star">⭐</span>
-                    </div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-value" id="months">0</div>
-                    <div class="counter-label">
-                        <span class="heart">💕</span>
-                        Tháng
-                        <span class="heart">💕</span>
-                    </div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-value" id="days">0</div>
-                    <div class="counter-label">
-                        <span class="flower">🌺</span>
-                        Ngày
-                        <span class="flower">🌺</span>
-                    </div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-value" id="hours">0</div>
-                    <div class="counter-label">
-                        <span class="sparkle">✨</span>
-                        Giờ
-                        <span class="sparkle">✨</span>
-                    </div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-value" id="minutes">0</div>
-                    <div class="counter-label">
+        <!-- Daily Tab Content -->
+        <div class="tab-content active" id="daily-tab">
+            <div class="header">
+                <h1 class="title">
+                    <span class="sparkle">✨</span>
+                    Daily Counter
+                    <span class="heart-icon">📅</span>
+                    <span class="sparkle">✨</span>
+                </h1>
+            </div>
+
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <label for="startDate">
                         <span class="cherry">🌸</span>
-                        Phút
+                        Ngày bắt đầu
                         <span class="cherry">🌸</span>
-                    </div>
+                    </label>
+                    <input type="date" id="startDate">
                 </div>
                 
-                <div class="counter-item">
-                    <div class="counter-value" id="seconds">0</div>
-                    <div class="counter-label">
-                        <span class="heart">💗</span>
-                        Giây
-                        <span class="heart">💗</span>
+                <button class="calculate-btn" onclick="startDailyCounter()">
+                    <span class="btn-text">Đếm ngày nào</span>
+                    <span class="btn-heart">💖</span>
+                </button>
+            </div>
+
+            <div class="result-section" id="dailyResultSection">ion">
+                <div class="daily-info">
+                    <div class="daily-item">
+                        <div class="daily-icon">📆</div>
+                        <div class="daily-label">Tổng số ngày</div>
+                        <div class="daily-value" id="totalDays">0</div>
+                    </div>
+                    
+                    <div class="daily-item">
+                        <div class="daily-icon">📅</div>
+                        <div class="daily-label">Số tuần</div>
+                        <div class="daily-value" id="totalWeeks">0</div>
+                    </div>
+                    
+                    <div class="daily-item">
+                        <div class="daily-icon">🗓️</div>
+                        <div class="daily-label">Số tháng</div>
+                        <div class="daily-value" id="totalMonths">0</div>
+                    </div>
+                </div>
+
+                <div class="daily-detail">
+                    <h3>Chi tiết thời gian 💕</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Giờ:</span>
+                            <span class="detail-value" id="dailyHours">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Phút:</span>
+                            <span class="detail-value" id="dailyMinutes">0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Giây:</span>
+                            <span class="detail-value" id="dailySeconds">0</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="footer-message">
+                <p class="romantic-text">
+                    <span class="twinkle">✨</span>
+                    Mỗi ngày bên nhau đều là món quà
+                    <span class="twinkle">💕</span>
+                </p>
+            </div>
         </div>
 
-        <div class="footer-message">
-            <p class="romantic-text">
-                <span class="twinkle">✨</span>
-                Cảm ơn vũ trụ đã đưa bạn đến bên mình
-                <span class="twinkle">💕</span>
-            </p>
+        <!-- Birthday Tab Content -->
+        <div class="tab-content" id="birthday-tab">b">
+            <div class="header">
+                <h1 class="title">
+                    <span class="sparkle">✨</span>
+                    Birthday Time Counter
+                    <span class="heart-icon">💗</span>
+                    <span class="sparkle">✨</span>
+                </h1>
+            </div>
+
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <label for="birthday">
+                        <span class="cherry">🌸</span>
+                        Ngày sinh của bạn
+                        <span class="cherry">🌸</span>
+                    </label>
+                    <input type="date" id="birthday" value="2002-08-04">
+                </div>
+                
+                <button class="calculate-btn" onclick="startCounter()">
+                    <span class="btn-text">Tính cho mình nè</span>
+                    <span class="btn-heart">💖</span>
+                </button>
+            </div>
+
+            <div class="result-section" id="resultSection">
+                <div class="counter-grid">
+                    <div class="counter-item">
+                        <div class="counter-value" id="years">0</div>
+                        <div class="counter-label">
+                            <span class="star">⭐</span>
+                            Năm
+                            <span class="star">⭐</span>
+                        </div>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <div class="counter-value" id="months">0</div>
+                        <div class="counter-label">
+                            <span class="heart">💕</span>
+                            Tháng
+                            <span class="heart">💕</span>
+                        </div>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <div class="counter-value" id="days">0</div>
+                        <div class="counter-label">
+                            <span class="flower">🌺</span>
+                            Ngày
+                            <span class="flower">🌺</span>
+                        </div>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <div class="counter-value" id="hours">0</div>
+                        <div class="counter-label">
+                            <span class="sparkle">✨</span>
+                            Giờ
+                            <span class="sparkle">✨</span>
+                        </div>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <div class="counter-value" id="minutes">0</div>
+                        <div class="counter-label">
+                            <span class="cherry">🌸</span>
+                            Phút
+                            <span class="cherry">🌸</span>
+                        </div>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <div class="counter-value" id="seconds">0</div>
+                        <div class="counter-label">
+                            <span class="heart">💗</span>
+                            Giây
+                            <span class="heart">💗</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-message">
+                <p class="romantic-text">
+                    <span class="twinkle">✨</span>
+                    Cảm ơn vũ trụ đã đưa bạn đến bên mình
+                    <span class="twinkle">💕</span>
+                </p>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="modules/birthday/birthday.js"></script>
+    <script src="modules/daily/daily.js"></script>
 </body>
 </html>

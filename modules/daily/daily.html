@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Counter 💗</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Daily Counter 💗</title>
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -14,46 +14,22 @@
     <div class="hearts"></div>
     
     <div class="container">
-        <div class="header">
-            <h1 class="title">
-                <span class="sparkle">✨</span>
-                Time Counter
-                <span class="heart-icon">💗</span>
-                <span class="sparkle">✨</span>
-            </h1>
-            <p class="subtitle">Choose your counter type</p>
-        </div>
-
         <!-- Tab Navigation -->
-        <div class="tab-navigation home-nav">
-            <button class="tab-btn" onclick="window.location.href='/modules/daily/daily.html'" data-tab="daily">
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="window.location.href='/modules/daily/daily.html'" data-tab="daily">
                 <span class="tab-icon">📅</span>
-                <span class="tab-text">Daily Counter</span>
-                <p class="tab-desc">Track your daily mood</p>
+                <span class="tab-text">Daily</span>
             </button>
             <button class="tab-btn" onclick="window.location.href='/modules/birthday/birthday.html'" data-tab="birthday">
                 <span class="tab-icon">🎂</span>
-                <span class="tab-text">Birthday Counter</span>
-                <p class="tab-desc">Count time since birth</p>
+                <span class="tab-text">Birthday</span>
             </button>
         </div>
 
-        <div class="footer-message">
-            <p class="romantic-text">
-                <span class="twinkle">✨</span>
-                Mỗi ngày đều là một món quà
-                <span class="twinkle">💕</span>
-            </p>
-        </div>
-    </div>
-
-    <script>
-        // Redirect to daily page by default
-        // Uncomment if you want auto-redirect
-        // window.location.href = '/modules/daily/daily.html';
-    </script>
-</body>
-</html>
+        <!-- Daily Tab Content -->
+        <div class="tab-content active" id="daily-tab">
+            <!-- Calendar Section -->
+            <div class="calendar-section">
                 <div class="calendar-header">
                     <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
                     <h2 class="calendar-title" id="calendarTitle">12/2025</h2>
@@ -132,6 +108,20 @@
                         <div class="mood-emoji">😄</div>
                     </div>
                 </div>
+
+                <!-- Note Section -->
+                <div class="mood-note-section">
+                    <label for="moodNote" class="note-label">
+                        <span class="note-icon">📝</span>
+                        Ghi chú của ngày
+                    </label>
+                    <textarea 
+                        id="moodNote" 
+                        class="mood-note-input" 
+                        placeholder="Viết ghi chú về ngày hôm nay..."
+                        rows="4"
+                        onblur="saveCurrentMood()"></textarea>
+                </div>
             </div>
 
             <!-- Mood Trend Chart -->
@@ -160,104 +150,14 @@
                 </div>
             </div>
         </div>
-
-        <!-- Birthday Tab Content -->
-        <div class="tab-content" id="birthday-tab">
-            <div class="header">
-                <h1 class="title">
-                    <span class="sparkle">✨</span>
-                    Birthday Time Counter
-                    <span class="heart-icon">💗</span>
-                    <span class="sparkle">✨</span>
-                </h1>
-            </div>
-
-            <div class="input-section">
-                <div class="input-wrapper">
-                    <label for="birthday">
-                        <span class="cherry">🌸</span>
-                        Ngày sinh của bạn
-                        <span class="cherry">🌸</span>
-                    </label>
-                    <input type="date" id="birthday" value="2002-08-04">
-                </div>
-                
-                <button class="calculate-btn" onclick="startCounter()">
-                    <span class="btn-text">Tính cho mình nè</span>
-                    <span class="btn-heart">💖</span>
-                </button>
-            </div>
-
-            <div class="result-section" id="resultSection">
-                <div class="counter-grid">
-                    <div class="counter-item">
-                        <div class="counter-value" id="years">0</div>
-                        <div class="counter-label">
-                            <span class="star">⭐</span>
-                            Năm
-                            <span class="star">⭐</span>
-                        </div>
-                    </div>
-                    
-                    <div class="counter-item">
-                        <div class="counter-value" id="months">0</div>
-                        <div class="counter-label">
-                            <span class="heart">💕</span>
-                            Tháng
-                            <span class="heart">💕</span>
-                        </div>
-                    </div>
-                    
-                    <div class="counter-item">
-                        <div class="counter-value" id="days">0</div>
-                        <div class="counter-label">
-                            <span class="flower">🌺</span>
-                            Ngày
-                            <span class="flower">🌺</span>
-                        </div>
-                    </div>
-                    
-                    <div class="counter-item">
-                        <div class="counter-value" id="hours">0</div>
-                        <div class="counter-label">
-                            <span class="sparkle">✨</span>
-                            Giờ
-                            <span class="sparkle">✨</span>
-                        </div>
-                    </div>
-                    
-                    <div class="counter-item">
-                        <div class="counter-value" id="minutes">0</div>
-                        <div class="counter-label">
-                            <span class="cherry">🌸</span>
-                            Phút
-                            <span class="cherry">🌸</span>
-                        </div>
-                    </div>
-                    
-                    <div class="counter-item">
-                        <div class="counter-value" id="seconds">0</div>
-                        <div class="counter-label">
-                            <span class="heart">💗</span>
-                            Giây
-                            <span class="heart">💗</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-message">
-                <p class="romantic-text">
-                    <span class="twinkle">✨</span>
-                    Cảm ơn vũ trụ đã đưa bạn đến bên mình
-                    <span class="twinkle">💕</span>
-                </p>
-            </div>
-        </div>
     </div>
 
-    <script src="script.js"></script>
-    <script src="modules/birthday/birthday.js"></script>
-    <script src="modules/daily/daily.js"></script>
+    <script src="/modules/daily/daily.js"></script>
+    <script>
+        // Initialize daily tab on load
+        window.addEventListener('load', () => {
+            initDailyTab();
+        });
+    </script>
 </body>
 </html>

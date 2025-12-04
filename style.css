@@ -200,6 +200,47 @@ body {
     }
 }
 
+/* Home Page Styles */
+.subtitle {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ff8ed4;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.home-nav {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.home-nav .tab-btn {
+    flex: 1;
+    flex-direction: column;
+    padding: 40px 30px;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.home-nav .tab-icon {
+    font-size: 4em;
+}
+
+.home-nav .tab-text {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.tab-desc {
+    font-size: 0.95em;
+    color: #999;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
 .input-section {
     background: linear-gradient(135deg, #fff0f8 0%, #ffe8f3 100%);
     border-radius: 30px;
@@ -529,8 +570,480 @@ body {
     transition: all 0.3s ease;
 }
 
-#dailyResultSection {
+/* Calendar Section */
+.calendar-section {
+    background: linear-gradient(135deg, #FFF5F0 0%, #FFE8E0 100%);
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #C09070;
+}
+
+.calendar-nav-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.8em;
+    color: #C09070;
+    cursor: pointer;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.calendar-nav-btn:hover {
+    transform: scale(1.2);
+    color: #A07050;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: #C09070;
+    font-size: 0.9em;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #D0A080;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 200, 180, 0.3);
+    transform: scale(1.1);
+}
+
+.calendar-day.today {
+    background: #FFEAA7;
+    color: #000;
+    box-shadow: 0 0 0 3px #FFD700;
+}
+
+.calendar-day.today:not(.has-mood) {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.calendar-day.has-mood {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.calendar-day .day-emoji {
+    font-size: 1.8em;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.calendar-day .day-number {
+    font-size: 0.7em;
+    color: #C09070;
+    font-weight: 600;
+}
+
+.calendar-day.today .day-number {
+    color: #A07050;
+    font-weight: 700;
+}
+
+.calendar-day.selected .day-number {
+    color: #A07050;
+    font-weight: 700;
+}
+
+/* Note Indicator */
+.note-indicator {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    background: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-indicator:hover {
+    transform: scale(1.2);
+    box-shadow: 0 3px 8px rgba(255, 110, 199, 0.4);
+}
+
+.calendar-day.selected {
+    background: #FFE8E0;
+    box-shadow: 0 0 0 3px rgba(255, 110, 199, 0.4);
+}
+
+.calendar-day.selected:not(.has-mood) {
+    color: #A07050;
+    font-weight: 700;
+}
+
+/* Mood Jar Section */
+.mood-jar-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.jar-container {
+    text-align: center;
+}
+
+.mood-jar {
+    width: 200px;
+    height: 250px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+#jarMoodEmoji {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.jar-label {
+    margin-top: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #C09070;
+}
+
+/* Mood Selector Section */
+.mood-selector-section {
+    background: linear-gradient(135deg, #FFFBF0 0%, #FFF8E8 100%);
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+}
+
+.mood-date {
+    text-align: center;
+    font-size: 1em;
+    color: #C09070;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.mood-question {
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.mood-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.mood-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mood-emoji {
+    font-size: 2.5em;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.mood-emoji:hover {
+    transform: scale(1.2);
+    background: rgba(255, 220, 200, 0.3);
+}
+
+.mood-emoji.selected {
+    background: #FFEAA7;
+    box-shadow: 0 0 0 3px #FFD700;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.mood-name {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #C09070;
+    margin-top: 5px;
+}
+
+/* Mood Note Section */
+.mood-note-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed rgba(192, 144, 112, 0.2);
+}
+
+.note-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.note-icon {
+    font-size: 1.3em;
+}
+
+.mood-note-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(192, 144, 112, 0.3);
+    border-radius: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    resize: vertical;
+    background: #FFFEFA;
+    transition: all 0.3s ease;
+}
+
+.mood-note-input:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.mood-note-input::placeholder {
+    color: #CCC;
+    font-style: italic;
+}
+
+/* Note Popup */
+.note-popup {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+.note-popup-content {
+    position: relative;
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.note-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(192, 144, 112, 0.2);
+}
+
+.note-popup-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.note-popup-close {
+    background: transparent;
+    border: none;
+    font-size: 1.8em;
+    color: #999;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.note-popup-close:hover {
+    color: #FF6EC7;
+    transform: rotate(90deg);
+}
+
+.note-popup-date {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #C09070;
+    margin-bottom: 15px;
+}
+
+.note-popup-body {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #555;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #FFFEFA;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(192, 144, 112, 0.2);
+}
+
+/* Mood Trend Section */
+.mood-trend-section {
+    background: #FFFFFF;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+}
+
+.trend-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.trend-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #333;
+}
+
+.trend-average {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    color: #666;
+}
+
+.avg-emoji {
+    font-size: 1.5em;
+}
+
+.trend-chart {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.y-label {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.chart-container {
+    flex: 1;
+    background: linear-gradient(to bottom, 
+        rgba(255, 200, 180, 0.1) 0%, 
+        rgba(255, 220, 200, 0.1) 50%,
+        rgba(200, 180, 255, 0.1) 100%);
+    border-radius: 15px;
+    padding: 10px;
+    position: relative;
+}
+
+#moodChart {
+    width: 100%;
+    height: 150px;
+}
+
+.chart-x-axis {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    font-size: 0.85em;
+    color: #999;
+    font-weight: 600;
 }
 
 /* Responsive */
@@ -558,12 +1071,12 @@ body {
     }
     
     .tab-navigation {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
     }
     
     .tab-btn {
-        width: 100%;
+        flex: 1;
         justify-content: center;
     }
     
@@ -573,6 +1086,34 @@ body {
     
     .detail-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .mood-options {
+        gap: 5px;
+    }
+    
+    .mood-emoji {
+        font-size: 2em;
+        padding: 8px;
+    }
+    
+    .calendar-section {
+        padding: 20px;
+    }
+    
+    .calendar-days {
+        gap: 5px;
+    }
+    
+    .mood-jar {
+        width: 180px;
+        height: 225px;
+    }
+    
+    .trend-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 }
 

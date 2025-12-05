@@ -1489,6 +1489,59 @@ body {
     .tab-icon {
         font-size: 1.2em;
     }
+    
+    .tab-text {
+        font-size: 0.85em;
+    }
+    
+    /* Home page responsive */
+    .home-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .home-nav .tab-btn {
+        min-height: 150px;
+        padding: 25px 20px;
+    }
+    
+    .home-nav .tab-icon {
+        font-size: 3em;
+    }
+    
+    .home-nav .tab-text {
+        font-size: 1.2em;
+    }
+    
+    .tab-desc {
+        font-size: 0.9em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+    }
+    
+    /* Reindeer story mobile fixes */
+    .main-reindeer-img {
+        width: 280px;
+        max-width: 85vw;
+    }
+    
+    .main-reindeer-img.final {
+        width: 250px;
+    }
+    
+    .story-deer {
+        width: 140px;
+    }
+    
+    .christmas-decoration {
+        font-size: 2em;
+    }
+    
+    .story-content {
+        padding: 30px 10px;
+    }
 }
 
 /* Reindeer Story Section - Tone xanh pastel nhẹ nhàng với hiệu ứng Noel */
@@ -2234,12 +2287,25 @@ body {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 30px 20px;
+        border-radius: 25px;
+    }
+    
+    .title {
+        font-size: 2em;
+    }
+    
     .reindeer-story-section {
-        padding: 40px 15px;
+        padding: 30px 10px;
     }
     
     .story-part {
-        margin: 50px 0;
+        margin: 40px 0;
     }
     
     .reindeer-img {
@@ -2255,14 +2321,15 @@ body {
     
     .story-text {
         font-size: 1em;
+        padding: 0 10px;
     }
     
     .speech-text {
-        font-size: 1em;
+        font-size: 0.95em;
     }
     
     .message-text {
-        font-size: 1.1em;
+        font-size: 1em;
     }
     
     .hug-icon {
@@ -2270,16 +2337,57 @@ body {
     }
     
     .story-deer {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: auto;
     }
     
     .speech-bubble {
-        padding: 20px;
+        padding: 18px;
+        font-size: 0.95em;
     }
     
     .gentle-message {
-        padding: 30px 20px;
+        padding: 25px 15px;
+    }
+    
+    .main-reindeer-img {
+        width: 240px;
+        max-width: 80vw;
+    }
+    
+    .main-reindeer-img.final {
+        width: 220px;
+    }
+    
+    .christmas-decoration {
+        font-size: 1.8em;
+    }
+    
+    .christmas-lights .light {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .story-content {
+        padding: 20px 5px;
+        gap: 15px;
+    }
+    
+    .deer-container {
+        margin: 0 auto;
+    }
+    
+    .home-nav .tab-btn {
+        min-height: 130px;
+        padding: 20px 15px;
+    }
+    
+    .home-nav .tab-icon {
+        font-size: 2.5em;
+    }
+    
+    .home-nav .tab-text {
+        font-size: 1.1em;
     }
     
     /* Old coming soon responsive */

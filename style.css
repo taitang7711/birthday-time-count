@@ -1490,3 +1490,829 @@ body {
         font-size: 1.2em;
     }
 }
+
+/* Reindeer Story Section - Tone xanh pastel nhẹ nhàng với hiệu ứng Noel */
+.reindeer-story-section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Christmas Snow Effect */
+.christmas-snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(2px 2px at 75% 90%, white, transparent);
+    background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px, 220px 220px, 260px 260px, 190px 190px;
+    animation: snowfall 20s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes snowfall {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 200px 200px, 300px 300px, 250px 250px, 180px 180px, 220px 220px, 260px 260px, 190px 190px;
+    }
+}
+
+/* Christmas Lights */
+.christmas-lights {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2;
+}
+
+.light {
+    width: 15px;
+    height: 20px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: twinkle 1.5s ease-in-out infinite;
+}
+
+.light.red {
+    background: radial-gradient(circle, #FF4444, #CC0000);
+    box-shadow: 0 0 10px #FF4444;
+    animation-delay: 0s;
+}
+
+.light.blue {
+    background: radial-gradient(circle, #4ECDC4, #0EA5E9);
+    box-shadow: 0 0 10px #4ECDC4;
+    animation-delay: 0.3s;
+}
+
+.light.green {
+    background: radial-gradient(circle, #95E1D3, #38A169);
+    box-shadow: 0 0 10px #95E1D3;
+    animation-delay: 0.6s;
+}
+
+.light.yellow {
+    background: radial-gradient(circle, #FFD93D, #F59E0B);
+    box-shadow: 0 0 10px #FFD93D;
+    animation-delay: 0.9s;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+}
+
+/* Christmas Decorations */
+.christmas-decoration {
+    position: absolute;
+    font-size: 2em;
+    animation: rotate360 8s linear infinite;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.christmas-decoration.top-left {
+    top: 50px;
+    left: 20px;
+}
+
+.christmas-decoration.top-right {
+    top: 50px;
+    right: 20px;
+    animation: sway 4s ease-in-out infinite;
+}
+
+.christmas-decoration.bottom-left {
+    bottom: 50px;
+    left: 20px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.christmas-decoration.bottom-right {
+    bottom: 50px;
+    right: 20px;
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    25% { transform: rotate(15deg) translateY(-10px); }
+    75% { transform: rotate(-15deg) translateY(-10px); }
+}
+
+.story-part {
+    margin: 80px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.story-part.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Story Intro */
+.story-intro {
+    text-align: center;
+}
+
+/* Main Reindeer Image Container */
+.reindeer-duo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.reindeer-main-image {
+    position: relative;
+    display: inline-block;
+}
+
+.main-reindeer-img {
+    width: 400px;
+    max-width: 90vw;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(14, 165, 233, 0.25));
+    animation: gentleFloat 4s ease-in-out infinite;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.main-reindeer-img:hover {
+    transform: scale(1.05);
+}
+
+.main-reindeer-img.final {
+    width: 350px;
+}
+
+/* Sparkle Effect around main image */
+.sparkle-effect {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(186, 230, 253, 0.2) 0%, transparent 60%);
+    animation: sparkleRotate 10s linear infinite;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+@keyframes sparkleRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Old duo styles (keeping for compatibility) */
+.reindeer-duo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.reindeer-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(14, 165, 233, 0.15));
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.left-deer {
+    animation-delay: 0s;
+}
+
+.right-deer {
+    animation-delay: 0.5s;
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.story-text {
+    font-size: 1.2em;
+    color: #0284C7;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.intro-text {
+    font-style: italic;
+    color: #0EA5E9;
+}
+
+.intro-text.pulse {
+    animation: softPulse 3s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Story Content - Left & Right Layout */
+.story-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.left-content {
+    justify-content: flex-start;
+}
+
+.right-content {
+    justify-content: flex-end;
+}
+
+.deer-container {
+    flex-shrink: 0;
+}
+
+.story-deer {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(14, 165, 233, 0.2));
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.story-deer:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.left-deer-story {
+    animation: gentleFloat 3.5s ease-in-out infinite;
+}
+
+.right-deer-story {
+    animation: gentleFloat 3.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+/* Snowflake & Star Decorations */
+.snowflake-container,
+.star-container {
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+}
+
+.snowflake,
+.star {
+    font-size: 1.5em;
+    animation: floatAround 3s ease-in-out infinite;
+}
+
+.snowflake:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.snowflake:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.star:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-15px) rotate(180deg);
+        opacity: 0.7;
+    }
+}
+
+/* Speech Bubbles */
+.speech-bubble {
+    position: relative;
+    background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
+    border-radius: 20px;
+    padding: 25px 30px;
+    max-width: 450px;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.15);
+}
+
+.left-bubble::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #E0F2FE;
+}
+
+.right-bubble::before {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #E0F2FE;
+}
+
+.speech-text {
+    font-size: 1.15em;
+    color: #0369A1;
+    line-height: 1.7;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Gentle Message Section with Christmas Frame */
+.gentle-message {
+    position: relative;
+    text-align: center;
+    padding: 50px 30px;
+    background: linear-gradient(135deg, rgba(224, 242, 254, 0.4) 0%, rgba(186, 230, 253, 0.3) 100%);
+    border-radius: 25px;
+    border: 2px dashed #7DD3FC;
+}
+
+.christmas-frame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+.message-text {
+    font-size: 1.3em;
+    color: #0284C7;
+    line-height: 1.8;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hug-animation {
+    margin-top: 20px;
+}
+
+.hug-icon {
+    font-size: 3em;
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+/* Story Ending */
+.story-ending {
+    text-align: center;
+}
+
+.reindeer-duo.final {
+    margin-bottom: 25px;
+}
+
+/* Heart Float Animation for Ending */
+.heart-float-container {
+    position: absolute;
+    top: -30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+}
+
+.heart-float {
+    font-size: 1.8em;
+    animation: heartFloat 3s ease-in-out infinite;
+}
+
+.heart-float:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.heart-float:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.heart-float:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes heartFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Old final deer styles */
+.final-left,
+.final-right {
+    width: 140px;
+    height: 140px;
+    animation: gentleFloat 3.5s ease-in-out infinite;
+}
+
+.final-left {
+    animation-delay: 0.2s;
+}
+
+.final-right {
+    animation-delay: 0.7s;
+}
+
+.ending-text {
+    font-size: 1.1em;
+    color: #0284C7;
+    line-height: 1.9;
+}
+
+.subtle-text {
+    font-size: 0.9em;
+    color: #38BDF8;
+    font-style: italic;
+}
+
+/* Coming Soon Section - Old (keeping for backwards compatibility) */
+.coming-soon-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.reindeer-animation {
+    margin: 30px 0;
+}
+
+.reindeer-icon {
+    font-size: 120px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.coming-soon-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+}
+
+.coming-soon-text {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 500px;
+    height: 30px;
+    background: linear-gradient(135deg, rgba(186, 230, 253, 0.3) 0%, rgba(224, 242, 254, 0.2) 100%);
+    border-radius: 15px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border: 2px solid #BAE6FD;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 50%, #38BDF8 100%);
+    border-radius: 15px;
+    transition: width 0.3s ease;
+    position: relative;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -500px 0;
+    }
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+.progress-text {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #0284C7;
+    margin-bottom: 50px;
+}
+
+.feature-preview {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    text-align: left;
+    background: linear-gradient(135deg, rgba(224, 242, 254, 0.5) 0%, rgba(186, 230, 253, 0.3) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #BAE6FD;
+}
+
+.preview-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #0284C7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(14, 165, 233, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.feature-item.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+}
+
+.feature-icon {
+    font-size: 1.8em;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 600;
+}
+
+.notify-section {
+    margin-top: 40px;
+}
+
+.notify-text {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.notify-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(14, 165, 233, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notify-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+}
+
+.notify-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.notify-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+.bell-icon {
+    font-size: 1.2em;
+    animation: ring 2s ease-in-out infinite;
+}
+
+@keyframes ring {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(15deg);
+    }
+    20%, 40% {
+        transform: rotate(-15deg);
+    }
+}
+
+/* Responsive for Reindeer Story Tab */
+@media (max-width: 768px) {
+    .reindeer-duo {
+        gap: 20px;
+    }
+    
+    .reindeer-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .story-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .right-content {
+        flex-direction: column-reverse;
+    }
+    
+    .speech-bubble {
+        max-width: 100%;
+    }
+    
+    .left-bubble::before,
+    .right-bubble::before {
+        display: none;
+    }
+    
+    .story-deer {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reindeer-story-section {
+        padding: 40px 15px;
+    }
+    
+    .story-part {
+        margin: 50px 0;
+    }
+    
+    .reindeer-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .final-left,
+    .final-right {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .story-text {
+        font-size: 1em;
+    }
+    
+    .speech-text {
+        font-size: 1em;
+    }
+    
+    .message-text {
+        font-size: 1.1em;
+    }
+    
+    .hug-icon {
+        font-size: 2.5em;
+    }
+    
+    .story-deer {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .speech-bubble {
+        padding: 20px;
+    }
+    
+    .gentle-message {
+        padding: 30px 20px;
+    }
+    
+    /* Old coming soon responsive */
+    .reindeer-icon {
+        font-size: 80px;
+    }
+    
+    .coming-soon-title {
+        font-size: 1.8em;
+    }
+    
+    .coming-soon-text {
+        font-size: 1em;
+    }
+    
+    .feature-preview {
+        padding: 20px;
+    }
+    
+    .feature-item {
+        padding: 12px;
+    }
+    
+    .feature-icon {
+        font-size: 1.5em;
+    }
+    
+    .feature-text {
+        font-size: 0.95em;
+    }
+    
+    .notify-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}

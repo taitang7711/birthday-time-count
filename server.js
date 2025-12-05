@@ -89,6 +89,9 @@ const server = http.createServer((req, res) => {
     } else if (pathname === '/modules/birthday/birthday.html') {
         filePath = path.join(__dirname, 'modules', 'birthday', 'birthday.html');
         contentType = 'text/html; charset=utf-8';
+    } else if (pathname === '/modules/reindeer/reindeer.html') {
+        filePath = path.join(__dirname, 'modules', 'reindeer', 'reindeer.html');
+        contentType = 'text/html; charset=utf-8';
     } else if (pathname === '/style.css') {
         filePath = path.join(__dirname, 'style.css');
         contentType = 'text/css';
@@ -101,6 +104,21 @@ const server = http.createServer((req, res) => {
     } else if (pathname.startsWith('/modules/') && pathname.endsWith('.css')) {
         filePath = path.join(__dirname, pathname);
         contentType = 'text/css';
+    } else if (pathname.startsWith('/modules/') && pathname.endsWith('.png')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'image/png';
+    } else if (pathname.startsWith('/modules/') && pathname.endsWith('.jpg')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'image/jpeg';
+    } else if (pathname.startsWith('/modules/') && pathname.endsWith('.jpeg')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'image/jpeg';
+    } else if (pathname.startsWith('/modules/') && pathname.endsWith('.gif')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'image/gif';
+    } else if (pathname.startsWith('/modules/') && pathname.endsWith('.svg')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'image/svg+xml';
     } else {
         res.writeHead(404);
         res.end('Not Found: ' + pathname);

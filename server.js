@@ -92,6 +92,9 @@ const server = http.createServer((req, res) => {
     } else if (pathname === '/modules/reindeer/reindeer.html') {
         filePath = path.join(__dirname, 'modules', 'reindeer', 'reindeer.html');
         contentType = 'text/html; charset=utf-8';
+    } else if (pathname === '/modules/countdown/countdown.html') {
+        filePath = path.join(__dirname, 'modules', 'countdown', 'countdown.html');
+        contentType = 'text/html; charset=utf-8';
     } else if (pathname === '/style.css') {
         filePath = path.join(__dirname, 'style.css');
         contentType = 'text/css';
@@ -119,6 +122,12 @@ const server = http.createServer((req, res) => {
     } else if (pathname.startsWith('/modules/') && pathname.endsWith('.svg')) {
         filePath = path.join(__dirname, pathname);
         contentType = 'image/svg+xml';
+    } else if (pathname.startsWith('/components/') && pathname.endsWith('.html')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'text/html; charset=utf-8';
+    } else if (pathname.startsWith('/components/') && pathname.endsWith('.js')) {
+        filePath = path.join(__dirname, pathname);
+        contentType = 'application/javascript';
     } else {
         res.writeHead(404);
         res.end('Not Found: ' + pathname);

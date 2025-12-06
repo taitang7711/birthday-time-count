@@ -15,20 +15,8 @@
     
     <div class="container">
         <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <button class="tab-btn" onclick="window.location.href='/modules/daily/daily.html'" data-tab="daily">
-                <span class="tab-icon">📅</span>
-                <span class="tab-text">Daily</span>
-            </button>
-            <button class="tab-btn" onclick="window.location.href='/modules/birthday/birthday.html'" data-tab="birthday">
-                <span class="tab-icon">🎂</span>
-                <span class="tab-text">Birthday</span>
-            </button>
-            <button class="tab-btn active" onclick="window.location.href='/modules/reindeer/reindeer.html'" data-tab="reindeer">
-                <span class="tab-icon">🦌</span>
-                <span class="tab-text">Tuần Lộc</span>
-            </button>
-        </div>
+        <div id="nav-placeholder"></div>
+        <script src="/components/load-navigation.js"></script>
 
         <!-- Reindeer Tab Content -->
         <div class="tab-content active" id="reindeer-tab">

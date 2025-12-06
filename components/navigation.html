@@ -1,0 +1,36 @@
+<!-- Tab Navigation Component -->
+<div class="tab-navigation">
+    <button class="tab-btn" onclick="window.location.href='/modules/daily/daily.html'" data-tab="daily">
+        <span class="tab-icon">📅</span>
+        <span class="tab-text">Daily</span>
+    </button>
+    <button class="tab-btn" onclick="window.location.href='/modules/birthday/birthday.html'" data-tab="birthday">
+        <span class="tab-icon">🎂</span>
+        <span class="tab-text">Birthday</span>
+    </button>
+    <button class="tab-btn" onclick="window.location.href='/modules/reindeer/reindeer.html'" data-tab="reindeer">
+        <span class="tab-icon">🦌</span>
+        <span class="tab-text">Tuần Lộc</span>
+    </button>
+    <button class="tab-btn" onclick="window.location.href='/modules/countdown/countdown.html'" data-tab="countdown">
+        <span class="tab-icon">⏳</span>
+        <span class="tab-text">Countdown</span>
+    </button>
+</div>
+
+<script>
+// Highlight active tab based on current page
+(function() {
+    const currentPath = window.location.pathname;
+    const buttons = document.querySelectorAll('.tab-btn');
+    
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        const tab = btn.getAttribute('data-tab');
+        
+        if (currentPath.includes(`/${tab}/`) || currentPath.includes(`/${tab}.html`)) {
+            btn.classList.add('active');
+        }
+    });
+})();
+</script>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown ⏳</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="hearts"></div>
+    
+    <div class="container">
+        <!-- Tab Navigation -->
+        <div id="nav-placeholder"></div>
+        <script src="/components/load-navigation.js"></script>
+
+        <!-- Countdown Tab Content -->
+        <div class="tab-content active" id="countdown-tab">
+            <div class="header">
+                <h1 class="title">
+                    <span class="sparkle">💎</span>
+                    Countdown
+                    <span class="heart-icon">⏳</span>
+                    <span class="sparkle">💎</span>
+                </h1>
+            </div>
+
+            <!-- Coming Soon Section -->
+            <div class="coming-soon-section">
+               
+
+                <!-- Countdowns Grid -->
+                <div class="countdowns-grid">
+                    <!-- Driving Test Countdown - Dec 9 -->
+                    <div class="countdown-card driving-card">
+                        <div class="countdown-header">
+                            <span class="countdown-emoji">🚗</span>
+                            <h3 class="countdown-title">Thi Lái Xe</h3>
+                        </div>
+                        <div class="countdown-date">
+                            <span class="date-badge">9 tháng 12</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="driving-days">--</span>
+                                <span class="time-label">Ngày</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="driving-hours">--</span>
+                                <span class="time-label">Giờ</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="driving-minutes">--</span>
+                                <span class="time-label">Phút</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="driving-seconds">--</span>
+                                <span class="time-label">Giây</span>
+                            </div>
+                        </div>
+                        <div class="countdown-message" id="driving-message">
+                            Đang đếm ngược...
+                        </div>
+                    </div>
+
+                    <!-- Christmas Countdown - Dec 25 -->
+                    <div class="countdown-card christmas-card">
+                        <div class="countdown-header">
+                            <span class="countdown-emoji">🎄</span>
+                            <h3 class="countdown-title">Noel</h3>
+                        </div>
+                        <div class="countdown-date">
+                            <span class="date-badge">25 tháng 12</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="christmas-days">--</span>
+                                <span class="time-label">Ngày</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="christmas-hours">--</span>
+                                <span class="time-label">Giờ</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="christmas-minutes">--</span>
+                                <span class="time-label">Phút</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="christmas-seconds">--</span>
+                                <span class="time-label">Giây</span>
+                            </div>
+                        </div>
+                        <div class="countdown-message" id="christmas-message">
+                            Đang đếm ngược...
+                        </div>
+                    </div>
+
+                    <!-- New Year Countdown - Jan 1 -->
+                    <div class="countdown-card newyear-card">
+                        <div class="countdown-header">
+                            <span class="countdown-emoji">🎊</span>
+                            <h3 class="countdown-title">Tết Dương Lịch</h3>
+                        </div>
+                        <div class="countdown-date">
+                            <span class="date-badge">1 tháng 1</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="newyear-days">--</span>
+                                <span class="time-label">Ngày</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="newyear-hours">--</span>
+                                <span class="time-label">Giờ</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="newyear-minutes">--</span>
+                                <span class="time-label">Phút</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="newyear-seconds">--</span>
+                                <span class="time-label">Giây</span>
+                            </div>
+                        </div>
+                        <div class="countdown-message" id="newyear-message">
+                            Đang đếm ngược...
+                        </div>
+                    </div>
+
+                    <!-- Lunar New Year Countdown - Jan 29 -->
+                    <div class="countdown-card lunar-card">
+                        <div class="countdown-header">
+                            <span class="countdown-emoji">🧧</span>
+                            <h3 class="countdown-title">Tết Nguyên Đán</h3>
+                        </div>
+                        <div class="countdown-date">
+                            <span class="date-badge" id="lunar-date">Đang tính...</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="lunar-days">--</span>
+                                <span class="time-label">Ngày</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="lunar-hours">--</span>
+                                <span class="time-label">Giờ</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="lunar-minutes">--</span>
+                                <span class="time-label">Phút</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="lunar-seconds">--</span>
+                                <span class="time-label">Giây</span>
+                            </div>
+                        </div>
+                        <div class="countdown-message" id="lunar-message">
+                            Đang đếm ngược...
+                        </div>
+                    </div>
+
+                    <!-- Valentine Countdown - Feb 14 -->
+                    <div class="countdown-card valentine-card">
+                        <div class="countdown-header">
+                            <span class="countdown-emoji">💝</span>
+                            <h3 class="countdown-title">Valentine</h3>
+                        </div>
+                        <div class="countdown-date">
+                            <span class="date-badge">14 tháng 2</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="valentine-days">--</span>
+                                <span class="time-label">Ngày</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="valentine-hours">--</span>
+                                <span class="time-label">Giờ</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="valentine-minutes">--</span>
+                                <span class="time-label">Phút</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="valentine-seconds">--</span>
+                                <span class="time-label">Giây</span>
+                            </div>
+                        </div>
+                        <div class="countdown-message" id="valentine-message">
+                            Đang đếm ngược...
+                        </div>
+                    </div>
+
+                    <!-- Birthday Countdown - Aug 4 -->
+                    <div class="countdown-card birthday-card">
+                        <div class="countdown-header">
+                            <span class="countdown-emoji">🎂</span>
+                            <h3 class="countdown-title">Birthday</h3>
+                        </div>
+                        <div class="countdown-date">
+                            <span class="date-badge">4 tháng 8</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="birthday-days">--</span>
+                                <span class="time-label">Ngày</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="birthday-hours">--</span>
+                                <span class="time-label">Giờ</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="birthday-minutes">--</span>
+                                <span class="time-label">Phút</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="birthday-seconds">--</span>
+                                <span class="time-label">Giây</span>
+                            </div>
+                        </div>
+                        <div class="countdown-message" id="birthday-message">
+                            Đang đếm ngược...
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="footer-message">
+                <p class="romantic-text">
+                    <span class="twinkle">💎</span>
+                    Hãy quay lại sớm nhé
+                    <span class="twinkle">💙</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/modules/countdown/countdown.js"></script>
+</body>
+</html>
